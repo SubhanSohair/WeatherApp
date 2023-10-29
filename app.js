@@ -1,6 +1,7 @@
-const http = require("http");
-const fs = require("fs");
-const requests = require("requests");
+import * as http from 'http';
+import * as fs from 'fs';
+import requests from 'requests';
+//const requests = require("requests");
 
 const homeFile = fs.readFileSync("home.html","utf-8");
 
@@ -14,9 +15,9 @@ const replaceVal = (temVal,orgVal)=>{
 
     return temperature
 };
-const server = http.createServer((req,res)=>{
+const server = http.createServer(async (req,res)=>{
     if (req.url == "/"){
-        requests('https://api.openweathermap.org/data/2.5/weather?q=Karachi&appid=0ec3ce6049f6fab2a65ac3dcf2b61f5f', )
+        await requests('https://api.openweathermap.org/data/2.5/weather?q=Karachi&appid=0ec3ce6049f6fab2a65ac3dcf2b61f5f', )
         .on('data', (chunk)=> {
             const objData = JSON.parse(chunk)
             const arrData = [objData];
