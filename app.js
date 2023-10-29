@@ -16,7 +16,7 @@ const replaceVal = (temVal,orgVal)=>{
 };
 const server = http.createServer((req,res)=>{
     if (req.url == "/"){
-        requests('https://api.openweathermap.org/data/2.5/weather?q=Karachi&appid=0ec3ce6049f6fab2a65ac3dcf2b61f5f', )
+        requests('https://api.openweathermap.org/data/2.5/weather?q=Karachi&appid=0ec3ce6049f6fab2a65ac3dcf2b61f5f')
         .on('data', (chunk)=> {
             const objData = JSON.parse(chunk)
             const arrData = [objData];
